@@ -1,4 +1,48 @@
 # [DSA PROJ1]2020270408 김예원
+### C. search node
+```
+void search_node(struct linked_list* list, int node_value)
+{
+	struct linked_node* current = list->head;
+	int location=1 ;
+	
+while (current != NULL)
+{
+	if (current == node_value)
+	{
+	printf("Function search_node: Node_ID %d is located in %dth node.\n",node_value, location);
+	return location; 
+	break;
+	}	
+	current = current->next;
+	location++;
+	
+}
+}
+```
+list가 null이 아니라면 head의 값이 node_value와 같아질 떄 까지 location을 하나씩 증가시켜 나간다. node_value와 같아진다면 'Function search_node: Node_ID (node_value) is located in (location)th node.'를 출력한 후 while 문을 빠져나온다.
+
+
+### D. convert to circularLinkedList
+```
+void convert_to_circularLinkedList(struct linked_list* list) 
+{
+if (list->list_type ==1 || list->tail->next == list->head)
+{
+printf("Function convert_to_CircularLinked: The list type is not normal.\n");
+}
+```
+list type 이 1 (stack)이거나 이미 tail의 next가 head를 가리키는 circularlinkedlist의 경우 'Function convert_to_CircularLinked: The list type is not normal' 에러 메세지를 출력한다
+```
+else
+{
+	list->tail->next = list->head;
+	printf("Function convert_to_CircularLinkedList: Complete the converting to circular linked list.\n");
+}
+}
+```
+stack이나 circularlinkedlist가 아니면 list의 tail의 next가 head를 가리키도록 해서 circularlinkedlist로 만들어 준 후 'Function convert_to_CircularLinkedList: Complete the converting to circular linked list.'를 출력한다.
+
 ### E. rotate_circularLinkedList
 
 ```
