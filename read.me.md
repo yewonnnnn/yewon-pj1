@@ -50,13 +50,15 @@ B)  void deleteHeap(HEAP h)
 		printf("successfully deleted");
 	}
 ```
-
+heap이 존재하면 heapdata를 NULL로 만들어 heap을 삭제하고 size도 0으로 만든 뒤 successfully deleted를 출력
 ```
 	else
 	{
 	printf("Error: No heap exists.\n");}
 }
 ```
+heap이 존재하지 않으면 에러메세지 출력
+
 C)  int findDepth(HEAP h)
 ```
 	if(h!=NULL)
@@ -72,6 +74,7 @@ C)  int findDepth(HEAP h)
 	printf("Depth is : %d", depth);
 }
 ```
+
 ```
 else
 	{
@@ -131,6 +134,7 @@ B)  int dequeueHeap(HEAP h)
 	printf("Error: No heap exists.\n");}
 }
 ```
+heap이 존재하지 않으면 에러메세지 출력
 
 ### 3. Sorting
 B)  void bubbleSort(int *Array)
@@ -139,13 +143,14 @@ B)  void bubbleSort(int *Array)
 	int size = 20;
 	for( i=0; i<size-1; i++)
 		for(j=size; j>=i+1; j--)
-			if (Array[j-1]>Array[j])
+			if (Array[j]>Array[i])
 			{
-				swap(&Array[j-1], &Array[j]);
+				swap(&Array[j], &Array[i]);
 			}
 	printf("%d", Array[i]);
 }
 ```
+2개의 값을 비교하여 오름차순으로 정렬한다. Array의 j번째 값이 i번째 보다 크다면 두 값을 swap해준다
 
 C)  void insertionSort(int *Array)
 ```
@@ -162,8 +167,6 @@ C)  void insertionSort(int *Array)
 		}
 	}
 
-	printf("Not Implemented!\n");
-}
 ```
 
 D)  void selectionSort(int *Array)
